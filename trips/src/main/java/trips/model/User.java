@@ -19,19 +19,29 @@ import javax.persistence.Table;
 @DiscriminatorColumn(name = "user_type", discriminatorType = DiscriminatorType.STRING)
 @DiscriminatorValue("ROLE_USER")
 public class User implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue
 	private Integer id;
 
-	@Column(nullable = false, name = "email")
+	@Column(nullable = true, name = "email")
 	private String email;
 
-	@Column(nullable = false, name = "password")
+	@Column(nullable = true, name = "password")
 	private String password;
 
 	@Column(nullable = false)
 	private boolean enabled;
+	
+	@Column(nullable = false, name= "device_id")
+	private String deviceId;
+	
+	@Column(nullable = false, name="client_id")
+	private String clientId;
+	
+	@Column(nullable = false, name="client_secret")
+	private String clientSecret;
 
 	public User() {
 	}
