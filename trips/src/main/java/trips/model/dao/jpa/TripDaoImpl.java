@@ -4,9 +4,9 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
-import org.apache.catalina.User;
 import org.springframework.stereotype.Repository;
 
+import trips.model.User;
 import trips.model.Trip;
 import trips.model.dao.TripDao;
 

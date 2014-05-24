@@ -6,12 +6,16 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Route {
+	@JsonIgnore
 	@Id
 	@GeneratedValue
 	private Integer id;
 	
+	@JsonIgnore
 	@ManyToOne
 	private Trip trip; // many to one
 	

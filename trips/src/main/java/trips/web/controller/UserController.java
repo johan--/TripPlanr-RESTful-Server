@@ -10,10 +10,10 @@ import trips.model.dao.UserDao;
 @Controller
 public class UserController {
 
-    @Autowired
-    private UserDao userDao;
+	@Autowired
+	private UserDao userDao;
 
-    @RequestMapping("/users.html")
+	@RequestMapping("/users.html")
     public String users( ModelMap models )
     {
         models.put( "users", userDao.getUsers() );

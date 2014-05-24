@@ -2,7 +2,7 @@ package trips.model.dao;
 
 import java.util.List;
 
-import org.apache.catalina.User;
+import trips.model.User;
 
 import trips.model.Trip;
 

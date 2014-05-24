@@ -15,12 +15,17 @@ import javax.persistence.OneToMany;
 import javax.persistence.OrderBy;
 import javax.persistence.OrderColumn;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 @Entity
 public class Trip {
+
+	@JsonIgnore
 	@Id
 	@GeneratedValue
 	private Integer id;
 	
+	@JsonIgnore
 	@ManyToOne
 	private User user;
 	
@@ -90,6 +95,14 @@ public class Trip {
 
 	public void setDefaultTravelMethod(String defaultTravelMethod) {
 		this.defaultTravelMethod = defaultTravelMethod;
+	}
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 }
