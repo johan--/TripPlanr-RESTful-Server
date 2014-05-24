@@ -1,11 +1,12 @@
 package trips.model;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
-import javax.persistence.OrderBy;
 
+@Entity
 public class Route {
 	@Id
 	@GeneratedValue
@@ -14,13 +15,15 @@ public class Route {
 	@ManyToOne
 	private Trip trip; // many to one
 	
-	@OneToMany(mappedBy = "location")
-	@OrderBy("id")
+	@ManyToOne
 	private Location fromLocation;
 
-	@OneToMany(mappedBy = "location")
-	@OrderBy("id")
+	@ManyToOne
 	private Location toLocation;
+
+	@Column(length=8)
+	private String travelMethod;
+
 	public Integer getId() {
 		return id;
 	}
@@ -28,8 +31,6 @@ public class Route {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	private String travelMethod;
 
 	public Trip getTrip() {
 		return trip;

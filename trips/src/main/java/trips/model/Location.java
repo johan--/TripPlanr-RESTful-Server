@@ -1,9 +1,11 @@
 package trips.model;
 
 import javax.persistence.Column;
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+@Entity
 public class Location {
 
 	@Id
@@ -16,11 +18,15 @@ public class Location {
 	@Column(nullable = false, length=32)
 	private String name;
 	
-	@Column(nullable = false, length=8)
+	@Column(nullable = false, length=8, name="location_type")
 	private String type;
 	
 	@Column(nullable = false, length=64)
 	private String notes;
+
+	private double lon;
+	private double lat;
+	
 	public Integer getId() {
 		return id;
 	}
@@ -28,9 +34,6 @@ public class Location {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-
-	private double lon;
-	private double lat;
 
 	public String getAddress() {
 		return address;
