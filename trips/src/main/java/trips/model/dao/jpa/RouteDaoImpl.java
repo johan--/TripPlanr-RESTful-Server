@@ -13,19 +13,24 @@ import trips.model.dao.RouteDao;
 @Repository
 public class RouteDaoImpl implements RouteDao {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+	@PersistenceContext
+	private EntityManager entityManager;
 
 	@Override
 	public Route getRoute(Integer id) {
-        return entityManager.find( Route.class, id );
+		return entityManager.find( Route.class, id );
 	}
 
 	@Override
 	public List<Route> getRoute(Trip trip) {
-        return entityManager.createQuery( "from User where trip=:trip order by id", Route.class )
-        		.setParameter("trip",	trip)
-                .getResultList();
+		return entityManager.createQuery( "from User where trip=:trip order by id", Route.class )
+				.setParameter("trip",	trip)
+				.getResultList();
+	}
+
+	@Override
+	public Route saveRoute(Route route) {
+		return entityManager.merge(route);
 	}
 
 }

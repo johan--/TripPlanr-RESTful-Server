@@ -12,4 +12,10 @@ public interface TripDao {
 
     List<Trip> getTrips(User user);
 
+	Trip getTrip(User user, String name);
+
+	void deleteTrip(Trip trip);
+	
+	Trip saveTrip(Trip trip);
+
 }

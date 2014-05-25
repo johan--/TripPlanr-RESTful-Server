@@ -7,8 +7,10 @@ import trips.model.Trip;
 
 public interface RouteDao {
 
-    Route getRoute( Integer id );
+	Route getRoute( Integer id );
 
-    List<Route> getRoute(Trip trip);
+	List<Route> getRoute(Trip trip);
+
+	Route saveRoute(Route route);
 
 }

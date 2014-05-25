@@ -85,4 +85,26 @@ public class Location {
 		this.lat = lat;
 	}
 
+	public boolean equals (Location location) {
+		if (this.name == location.getName()
+				&& this.address == location.getAddress()
+				&& this.lat == location.getLat()
+				&& this.lon == location.getLon()
+				&& this.type == location.getType()
+				&& this.notes == location.getNotes()
+				)
+			return true;
+		else
+			return false;
+	}
+
+	public void copy(Location location) {
+		this.name = location.getName();
+		this.address = location.getAddress();
+		this.lat = location.getLat();
+		this.lon = location.getLon();
+		this.type = location.getType();
+		this.notes = location.getNotes();
+	}
+
 }

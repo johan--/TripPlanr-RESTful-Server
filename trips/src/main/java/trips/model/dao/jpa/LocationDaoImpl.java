@@ -11,12 +11,17 @@ import trips.model.dao.LocationDao;
 @Repository
 public class LocationDaoImpl implements LocationDao {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+	@PersistenceContext
+	private EntityManager entityManager;
 
-    @Override
-    public Location getLocation( Integer id )
-    {
-        return entityManager.find( Location.class, id );
-    }
+	@Override
+	public Location getLocation( Integer id )
+	{
+		return entityManager.find( Location.class, id );
+	}
+
+	@Override
+	public Location saveLocation(Location location) {
+		return entityManager.merge(location);
+	}
 }
