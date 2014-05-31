@@ -12,20 +12,20 @@ import trips.model.dao.UserDao;
 @Repository
 public class UserDaoImpl implements UserDao {
 
-    @PersistenceContext
-    private EntityManager entityManager;
+	@PersistenceContext
+	private EntityManager entityManager;
 
-    @Override
-    public User getUser( Integer id )
-    {
-        return entityManager.find( User.class, id );
-    }
+	@Override
+	public User getUser( Integer id )
+	{
+		return entityManager.find( User.class, id );
+	}
 
-    @Override
-    public List<User> getUsers()
-    {
-        return entityManager.createQuery( "from User order by id", User.class )
-            .getResultList();
-    }
+	@Override
+	public List<User> getUsers()
+	{
+		return entityManager.createQuery( "from User order by id", User.class )
+				.getResultList();
+	}
 
 }

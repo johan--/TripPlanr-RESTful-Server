@@ -13,4 +13,6 @@ public interface RouteDao {
 
 	Route saveRoute(Route route);
 
+	void deleteRoute(Route route);
+
 }

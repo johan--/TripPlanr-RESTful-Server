@@ -40,8 +40,6 @@ create sequence hibernate_sequence minvalue 100;
 
     insert into route values(3, 2, 'DRIVING', 4,5);
 
-    
-
     create table trip_locations (
         trip_id int4 not null,
         location_id int4 not null,
@@ -49,6 +47,12 @@ create sequence hibernate_sequence minvalue 100;
         primary key (trip_id, step)
     );
     
+    insert into trip values(1, 1, 1);
+    insert into trip values(1, 2, 2);
+    insert into trip values(1, 3, 3);
+    insert into trip values(2, 1, 4);
+    insert into trip values(2, 2, 5);
+
     create table users (
         id int4 primary key,
         user_type varchar(31) not null,

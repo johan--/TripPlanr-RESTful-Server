@@ -4,6 +4,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import trips.model.Location;
 import trips.model.dao.LocationDao;
@@ -21,6 +22,7 @@ public class LocationDaoImpl implements LocationDao {
 	}
 
 	@Override
+	@Transactional
 	public Location saveLocation(Location location) {
 		return entityManager.merge(location);
 	}

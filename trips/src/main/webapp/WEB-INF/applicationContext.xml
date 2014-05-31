@@ -14,7 +14,7 @@ http://www.springframework.org/schema/security/spring-security-3.1.xsd">
 		destroy-method="close">
 		<property name="driverClassName" value="org.postgresql.Driver" />
 		<property name="url" value="jdbc:postgresql://localhost:5432/trips" />
-		<property name="username" value="postgres" />
+		<property name="username" value="trips" />
 		<property name="password" value="abcd" />
 		<property name="initialSize" value="1" />
 	</bean>

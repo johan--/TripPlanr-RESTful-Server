@@ -47,6 +47,7 @@ public class TripDaoImpl implements TripDao {
 	}
 
 	@Override
+	@Transactional
 	public Trip saveTrip(Trip trip) {
 		return entityManager.merge(trip);
 	}

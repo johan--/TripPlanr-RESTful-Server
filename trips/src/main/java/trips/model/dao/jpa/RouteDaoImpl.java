@@ -5,6 +5,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
 import trips.model.Route;
 import trips.model.Trip;
@@ -29,8 +30,15 @@ public class RouteDaoImpl implements RouteDao {
 	}
 
 	@Override
+	@Transactional
 	public Route saveRoute(Route route) {
 		return entityManager.merge(route);
+	}
+
+	@Override
+	@Transactional
+	public void deleteRoute(Route route) {
+		entityManager.remove(route);
 	}
 
 }
