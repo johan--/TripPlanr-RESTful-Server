@@ -66,6 +66,10 @@
 
     insert into users values(1,'ROLE_ADMIN','t','admin@gmail.com','abcd', '12345', 'abcde','98765');
     insert into users values(2,'ROLE_USER','t','john@gmail.com','abcd','24680','zyxwv','13579');
+    insert into users values(3,'ROLE_USER','t','max@gmail.com','abcd','24680','zyxwv','13579');
+    insert into users values(4,'ROLE_USER','t','josh@gmail.com','abcd','24680','zyxwv','13579');
+    insert into users values(5,'ROLE_USER','t','amy@gmail.com','abcd','24680','zyxwv','13579');
+
 
     alter table Route add constraint fk_from_location 
         foreign key (fromLocation_id) references Location;

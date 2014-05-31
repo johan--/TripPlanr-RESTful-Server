@@ -16,7 +16,7 @@ drop table users;
 
 drop table trip;
 
-drop table rouge;
+drop table route;
 
 drop table location;
 drop table trip_locations;
