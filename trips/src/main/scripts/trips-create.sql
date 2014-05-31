@@ -1,4 +1,4 @@
-create sequence hibernate_sequence minvalue 100;
+﻿create sequence hibernate_sequence minvalue 100;
 
     create table Location (
         id int4 primary key,
@@ -47,11 +47,11 @@ create sequence hibernate_sequence minvalue 100;
         primary key (trip_id, step)
     );
     
-    insert into trip values(1, 1, 1);
-    insert into trip values(1, 2, 2);
-    insert into trip values(1, 3, 3);
-    insert into trip values(2, 1, 4);
-    insert into trip values(2, 2, 5);
+    insert into trip_locations values(1, 1, 1);
+    insert into trip_locations values(1, 2, 2);
+    insert into trip_locations values(1, 3, 3);
+    insert into trip_locations values(2, 1, 4);
+    insert into trip_locations values(2, 2, 5);
 
     create table users (
         id int4 primary key,
