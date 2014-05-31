@@ -33,25 +33,30 @@ public class User implements Serializable {
 
 	@Column(nullable = false)
 	private boolean enabled;
-	
-	@Column(nullable = false, name= "device_id")
+
+	@Column(nullable = false, name = "device_id")
 	private String deviceId;
-	
-	@Column(nullable = false, name="client_id")
+
+	@Column(nullable = false, name = "client_id")
 	private String clientId;
-	
-	@Column(nullable = false, name="client_secret")
+
+	@Column(nullable = false, name = "client_secret")
 	private String clientSecret;
 
 	public User() {
 	}
 
-	public User(Integer id, String email, String password, boolean enabled) {
+	public User(Integer id, String email, String password, boolean enabled,
+			String deviceId, String clientId, String clientSecret) {
 
 		this.id = id;
 		this.email = email;
 		this.password = password;
 		this.enabled = enabled;
+		this.deviceId = deviceId;
+		this.clientId = clientId;
+		this.clientSecret = clientSecret;
+
 	}
 
 	public Integer getId() {
@@ -85,4 +90,33 @@ public class User implements Serializable {
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
+
+	public String getDeviceId() {
+		return deviceId;
+	}
+
+	public void setDeviceId(String deviceId) {
+		this.deviceId = deviceId;
+	}
+
+	public String getClientId() {
+		return clientId;
+	}
+
+	public void setClientId(String clientId) {
+		this.clientId = clientId;
+	}
+
+	public String getClientSecret() {
+		return clientSecret;
+	}
+
+	public void setClientSecret(String clientSecret) {
+		this.clientSecret = clientSecret;
+	}
+
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
 }
