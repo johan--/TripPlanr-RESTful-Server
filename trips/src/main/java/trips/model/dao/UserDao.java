@@ -6,8 +6,10 @@ import trips.model.User;
 
 public interface UserDao {
 
-    User getUser( Integer id );
+	User getUser( Integer id );
 
-    List<User> getUsers();
+	List<User> getUsers();
+
+	User saveUser(User user);
 
 }

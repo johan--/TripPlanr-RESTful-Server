@@ -171,7 +171,6 @@ public class TripController {
 
 		} catch (JSONException e) {
 			result = "{\"result\" : \"Invalid input\"}";
-			throw new JSONException("jason error: " + e.getMessage() + " string: " + request.getQueryString());
 		}
 
 		response.setContentType("application/json");

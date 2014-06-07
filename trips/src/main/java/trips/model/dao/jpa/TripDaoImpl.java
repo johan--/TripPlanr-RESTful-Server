@@ -41,7 +41,7 @@ public class TripDaoImpl implements TripDao {
 	}
 
 	@Override
-    @Transactional
+	@Transactional
 	public void deleteTrip(Trip trip) {
 		entityManager.remove(trip);
 	}

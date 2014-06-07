@@ -1,7 +1,9 @@
 package trips.web.controller;
 
 import java.io.IOException;
+import java.net.URLDecoder;
 import java.util.List;
+import java.util.UUID;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -9,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.json.JSONException;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -25,7 +28,7 @@ import trips.model.dao.UserDao;
 public class UserRestController {
 
 	@PersistenceContext
-    private EntityManager entityManager;
+	private EntityManager entityManager;
 	
 	@Autowired
 	UserDao userDao;
@@ -35,7 +38,7 @@ public class UserRestController {
 	public @ResponseBody List<User> getUsers() {
 		
 		return entityManager.createQuery( "from User order by id", User.class )
-	            .getResultList();
+				.getResultList();
 	}
 	
 	//get user by ID
@@ -46,20 +49,32 @@ public class UserRestController {
 	}
 	
 	//create new user
-	
+	@RequestMapping("/user/signup")
+	public void signup(HttpServletResponse response, HttpServletRequest request)
+			throws JSONException, IOException {
+		JSONObject reqJSON = null;
+		String result = "";
+		User user = new User();
+
+		try {
+			reqJSON = new JSONObject(URLDecoder.decode(request.getQueryString(), "UTF-8"));
+			user.setDeviceId(reqJSON.getString("deviceId"));
+			user.setClientId(UUID.randomUUID().toString());
+			user.setClientSecret(UUID.randomUUID().toString());
+			user = userDao.saveUser(user);
+
+		} catch (JSONException e) {
+			result = "{\"result\" : \"Invalid input\"}";
+		}
+		if (user.getId() > 0)
+			result = "{\"result\":\"Success\"}";
+		else
+			result = "{\"result\":\"System error\"}";
+		response.setContentType("application/json");
+		response.getWriter().write(result );
+	}
+
 	//update user
 	
 	//delete user
 }
-
-
-
-
-
-
-
-
-
-
-
-
